@@ -1,3 +1,7 @@
+/*
+  This program was written to demonstrate some ES6 syntax. Uncomment the console.log's to play around with the different features of ES6.
+*/
+
 /**** CONST: the immutable variable ***/
 
 const name = "Gideon Graves";
@@ -6,11 +10,12 @@ const name = "Gideon Graves";
 
 
 /**** LET: the contexual variable ****/
+
 for (let i = 0; i < 3; i++) {
   let multiple = 2 * i;
   // console.log('Inner', multiple);
   for (let i = 0; i < 3; i++) {
-    let multiple = 3 * i; // No errors! WOOT!
+    let multiple = 3 * i; // No errors for 'preciously defined' variables! WOOT!
     // console.log('Outer', multiple)
   }
 }
@@ -27,28 +32,29 @@ const someParams = (first, second = false, third = 3) => first + second + third;
 
 /**** REST PARAMETER: the ambigous parameter ****/
 
-// const lotsaParams = (...params) => {
-//   let sum = 0;
-//   for (let i = 0; i < params.length; i++) {
-//     sum += params[i]
-//   }
-//   return sum;
-// }
 
-const lotsaParams = function() {
+
+const lotsaParams = (...params) => {
   let sum = 0;
-  for (let i = 0; i < lotsaParams.arguments.length; i++) {
-    sum += lotsaParams.arguments[i];
+  for (let i = 0; i < params.length; i++) {
+    sum += params[i]
   }
   return sum;
 }
 
+// The following is a workaround which uses ES2015 syntax to accomplish the same goal. The 'arguments' keyword is not allowed in 'strict' mode. 'use strict' is automatically implied when using any ES6 code.
+
+// const lotsaParams = function() {
+//   let sum = 0;
+//   for (let i = 0; i < lotsaParams.arguments.length; i++) {
+//     sum += lotsaParams.arguments[i];
+//   }
+//   return sum;
+// }
+
 
 
 /**** SPREAD OPERATOR: the intuitive array appender ****/
-// let arr = [1,3,5]
-// arr = arr.concat[4,6,8];
-//[1,3,5,4,6,8]
 
 //concat'ing
 let spreader1 = (words) => {
@@ -76,6 +82,7 @@ let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
 
 
 /**** STRING INTERPOLATION: the inline lifesaver ****/
+
 let myName = "Steven Stills";
 let yourName = "Julie"
 let myIntro = `Hello, ${yourName}, they call me ${myName}`;

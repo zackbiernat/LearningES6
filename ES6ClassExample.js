@@ -1,6 +1,10 @@
+/*
+  This is a basic example of how ES6 uses the 'class' keyword to create a prototype. Play with the commented console.log's to help build your understanding of classes.
+*/
+
 //Our basic use of 'class'
 class Hacker {
-  // Constructor constructs a unique clone with (or without) some parameters
+  // Constructor constructs a unique clone with (or without) some initial parameters
   constructor(name, introduction) {
     this.job = 'None';
     this.language = "JavaScript";
@@ -8,7 +12,7 @@ class Hacker {
     this.name = name;
     this.intro = introduction;
   }
-
+  // Define class methods
   greet() {
     console.log(this.intro);
   }
@@ -17,12 +21,13 @@ class Hacker {
 
 let teaShpiel = "We have blueberry, raspberry, ginseng, sleepy time, green tea, green tea with lemon, green tea with lemon and honey, liver disaster, ginger with honey, ginger without honey, vanilla almond, white truffel, blueberry chamomile, vanilla walnut, constant comment and... earl grey."
 
+// Keyword 'new' creates a new instance of the 'Hacker' class
 let precourseStudent = new Hacker("Ramona Flowers", teaShpiel);
 
 
 // console.log('Ramona', precourseStudent);
 
-
+// This class is a superclass of 'Hacker'. It has everything that the 'Hacker' clas has and 'extends' other properties and methods on top of that.
 class HackerInResidence extends Hacker {
   constructor(name, introduction) {
     // 'super' is the parent constructor. We must invoke it to pass properties.
@@ -46,9 +51,10 @@ class HackerInResidence extends Hacker {
 
 let evilEx1 = "I'm Matthew Pattel and I am Ramona's ... FIRST. Evil. Ex. Boyfriend."
 
+// Keyword 'new' creates a new instance of the 'HackerInResidence' class
 let precourseHiR = new HackerInResidence("Matthew Pattel", evilEx1);
 
-console.log('Matthew', precourseHiR);
+// console.log('Matthew', precourseHiR);
 
 // precourseHiR.teachPrecourse(precourseStudent);
 
